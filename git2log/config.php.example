@@ -1,0 +1,16 @@
+<?php
+namespace aquaweb\config;
+
+const DBArray = [
+    'driver'    => 'sqlsrv',
+    'host'      => 'tcp:hostname',
+    'port'      => '1433',
+    'database'  => 'Aqua',
+    'username'  => 'username',
+    'password'  => 'password',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => ''
+];
+
+?>
