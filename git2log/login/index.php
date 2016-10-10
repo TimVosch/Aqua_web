@@ -15,7 +15,8 @@
         } else {
             $loginSuccess = true;
             $_SESSION['username'] = $_POST['username'];
-            header('location: /');
+            header("Location: /");
+            exit();
         }
     }
     

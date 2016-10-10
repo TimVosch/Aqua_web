@@ -8,7 +8,7 @@
         if (isset($_SESSION['username'])) {
             return true;
         } else {
-            header('location: /login/');
-            return false;
+            header('Location: /login/');
+            exit;
         }
     }
