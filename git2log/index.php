@@ -8,7 +8,7 @@
 <head>
     <title>Aqua - Git2Log</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php include $_SERVER['DOCUMENT_ROOT'].'/dependencies.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/git2log'.'/dependencies.php'; ?>
 </head>
 <body>
 

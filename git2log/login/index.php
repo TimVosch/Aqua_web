@@ -30,7 +30,7 @@
 <html>
 <head>
     <title>Aqua - Login</title>
-    <?php include('../dependencies.php'); ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/git2log'.'/dependencies.php'; ?>
 </head>
 <body>
     
