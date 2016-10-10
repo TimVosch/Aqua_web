@@ -1,33 +1,16 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/git2log/login/session.php';
-    include $_SERVER['DOCUMENT_ROOT'].'/git2log/database/models/account.php';
-    
-    use aquaweb\database\models\Account;
-    use Illuminate\Database\Capsule\Manager as Capsule;
-    
-    // If we're already logged in then redirect to homepage
-    if (\aquaweb\session\isLoggedIn()) {
-        header('Location: /git2log/');
-        exit;
-    }
 
-    // TODO: Password verification!
-    // If username and userpassword are set POST variables, assume we're loggin in
-    if (isset($_POST['username']) && isset($_POST['userpassword'])) {
-        $accounts = Account::where('username', '=', $_POST['username'])->count();
-        if ($accounts == 0) {
-            $loginSuccess = false;
-        } else {
-            $loginSuccess = true;
-            header('Location: /git2log/');
-            exit();
-        }
+    // If logging out
+    if (isset($_GET['logout'])) {
+        $logoutSuccess = \aquaweb\session\logoutAccount();
     }
-    
-    // If destroy is a GET variable, destroy the session
-    if (isset($_GET['destroy'])) {
-        $logoutSuccess = false;
-        session_destroy();
+    // Redirect if loggedin
+    \aquaweb\session\checkLoginThenRedirect('/git2log/');
+
+    // Check if trying to login
+    if (isset($_POST['username']) && isset($_POST['userpassword'])) {
+        $loginSuccess = \aquaweb\session\loginAccount($_POST['username'], $_POST['userpassword']);
     }
     
 ?>
@@ -56,16 +39,15 @@
                                 <div class="col-sm-8"><input type="password" class="form-control" name="userpassword"/></div>
                             </div>
                             <div class="form-group">
-                                <?php if (isset($loginSuccess)): ?>
                                     <div class="col-sm-7">
-                                        <span class="text-danger">Login failed!</span>
+                                    &nbsp;
+                                        <?php if (isset($loginSuccess) && !$loginSuccess): ?>
+                                            <span class="text-danger">Login failed!</span>
+                                        <?php endif; ?>
+                                        <?php if (isset($logoutSuccess) && $logoutSuccess): ?>
+                                            <span class="text-success">Logout success!</span>
+                                        <?php endif; ?>
                                     </div>
-                                <?php endif; ?>
-                                <?php if (isset($logoutSuccess)): ?>
-                                    <div class="col-sm-7">
-                                        <span class="text-success">Logout success!</span>
-                                    </div>
-                                <?php endif; ?>
                                 <div class="col-sm-4 col-sm-offset-1">
                                     <input type="submit" class="btn btn-primary btn-line pull-right" value="Login"/>
                                 </div>
