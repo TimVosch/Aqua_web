@@ -1,5 +1,5 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT'].'/login/session.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/git2log'.'/login/session.php';
     \aquaweb\session\verifyLogin();
 ?>
 
