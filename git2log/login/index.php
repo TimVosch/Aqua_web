@@ -1,7 +1,7 @@
 <?php
     error_reporting(-1);
-    include $_SERVER['DOCUMENT_ROOT'].'/login/session.php';
-    include $_SERVER['DOCUMENT_ROOT'].'/database/models/account.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/git2log'.'/login/session.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/git2log'.'/database/models/account.php';
     
     use aquaweb\database\models\Account;
     use Illuminate\Database\Capsule\Manager as Capsule;
@@ -15,7 +15,6 @@
         } else {
             $loginSuccess = true;
             $_SESSION['username'] = $_POST['username'];
-            header('HTTP/1.1 302 Found');
             header("Location: /");
             exit();
         }
