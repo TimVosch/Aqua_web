@@ -8,6 +8,7 @@
         if (isset($_SESSION['username'])) {
             return true;
         } else {
+            header('HTTP/1.1 302 Found');
             header('Location: /login/');
             exit;
         }

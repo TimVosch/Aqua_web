@@ -15,6 +15,7 @@
         } else {
             $loginSuccess = true;
             $_SESSION['username'] = $_POST['username'];
+            header('HTTP/1.1 302 Found');
             header("Location: /");
             exit();
         }
