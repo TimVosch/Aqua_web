@@ -8,7 +8,7 @@
         if (isset($_SESSION['username'])) {
             return true;
         } else {
-            header('Location: /login/');
+            header('Location: /git2log/login/');
             exit;
         }
     }
