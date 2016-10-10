@@ -1,11 +1,16 @@
 <?php
-    error_reporting(-1);
     include $_SERVER['DOCUMENT_ROOT'].'/git2log/login/session.php';
     include $_SERVER['DOCUMENT_ROOT'].'/git2log/database/models/account.php';
     
     use aquaweb\database\models\Account;
     use Illuminate\Database\Capsule\Manager as Capsule;
     
+    // If we're already logged in then redirect to homepage
+    if (\aquaweb\session\isLoggedIn()) {
+        header('Location: /git2log/');
+        exit;
+    }
+
     // TODO: Password verification!
     // If username and userpassword are set POST variables, assume we're loggin in
     if (isset($_POST['username']) && isset($_POST['userpassword'])) {
@@ -14,8 +19,7 @@
             $loginSuccess = false;
         } else {
             $loginSuccess = true;
-            $_SESSION['username'] = $_POST['username'];
-            header("Location: /git2log/");
+            header('Location: /git2log/');
             exit();
         }
     }

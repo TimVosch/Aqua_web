@@ -4,7 +4,7 @@
     
     include $_SERVER['DOCUMENT_ROOT'].'/git2log/database/database.php';
     
-    // Checks whether session is logged in, if not then redirect
+    // Make sure session is loggedin before accessing page.
     function verifyLogin() {
         if (isset($_SESSION['username'])) {
             return true;
@@ -12,4 +12,9 @@
             header('Location: /git2log/login/');
             exit;
         }
+    }
+
+    // Check if session is loggedin
+    function isLoggedIn() {
+        return isset($_SESSION['username']);
     }
