@@ -1,6 +1,11 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/git2log/session/session.php';
 
+    // If message is defined
+    if (isset($_GET['message'])) {
+        $message = htmlentities($_GET['message']);
+    }
+
     // If logging out
     if (isset($_GET['logout'])) {
         $loginValue = \aquaweb\session\logoutAccount();
@@ -51,6 +56,8 @@
                                     <div class="text-center">
                                         <?php if (isset($loginValue) ): ?>
                                             <span class="text-<?php echo $loginValue->success? 'success':'danger'; ?>"><?php echo $loginValue->message; ?>!</span>
+                                        <?php elseif (isset($message)): ?>
+                                            <span class="text-success"><?php echo $message; ?>!</span>
                                         <?php endif; ?>
                                     </div>
                                 </div>
