@@ -9,7 +9,7 @@
     
     
     // If not loggedin then redirect
-    function checkLoginElseRedirect($redirect = '/git2log/login/') {
+    function checkLoginElseRedirect($redirect = '/git2log/session/') {
         if (!isLoggedIn()) {
             header('Location: '.$redirect);
             exit;

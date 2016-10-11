@@ -1,12 +1,12 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT'].'/git2log/login/session.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/git2log/session/session.php';
 
     // If logging out
     if (isset($_GET['logout'])) {
         $logoutSuccess = \aquaweb\session\logoutAccount();
     }
     // Redirect if loggedin
-    \aquaweb\session\checkLoginThenRedirect('/git2log/');
+    \aquaweb\session\checkLoginThenRedirect();
 
     // Check if trying to login
     if (isset($_POST['username']) && isset($_POST['userpassword'])) {

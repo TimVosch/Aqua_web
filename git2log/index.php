@@ -1,5 +1,5 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT'].'/git2log/login/session.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/git2log/session/session.php';
     \aquaweb\session\checkLoginElseRedirect();
 ?>
 
@@ -18,7 +18,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <span><strong>Git2Log</strong>, welcome <?php echo $Account->first_name; ?>!</span>
-                        <span class="pull-right"><a href="/git2log/login/?logout" style="color: #fff"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></span>
+                        <span class="pull-right"><a href="/git2log/session/?logout" style="color: #fff"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></span>
                     </div>
                     <div class="panel-body">
                         
