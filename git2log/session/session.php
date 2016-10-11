@@ -29,35 +29,34 @@
     }
 
     // Login account
-    // $username and $password will be filtered
     function loginAccount($username, $password, $redirect = '/git2log/') {
-        if (isset($username) && isset($password)) {
-            try {
-            // Query account that use this name and password, or fail
-                $account = Account::where([
-                        ['username', '=', $username]
-                    ])->firstOrFail();
-
-                // Check account password
-                $valid = password_verify($password, $account->password);
-                if (!$valid) {
-                    return (object) array('success'=>false, 'message'=>"Wrong username/password");
-                }
-
-                // If nothing was thrown then assume we've logged in
-                $_SESSION['account'] = $account;
-                // we're instantly redirecting so returning is not necessary(?)
-                //return (object) array('success'=>true, 'message'=>"Success");
-                header('Location: '.$redirect);
-                exit();
-
-                // Catch error
-            }catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-                return (object) array('success'=>false, 'message'=>"Wrong username/password");
-                return $loginReport;
-            }
+        if (!isset($username, $password)) {
+            return (object) array('success'=>false, 'message'=>"Missing username/password");
         }
-        return (object) array('success'=>false, 'message'=>"Missing username/password");
+
+        try {
+        // Query account that use this name and password, or fail
+            $account = Account::where([
+                    ['username', '=', $username]
+                ])->firstOrFail();
+
+            // Check account password
+            $valid = password_verify($password, $account->password);
+            if (!$valid) {
+                return (object) array('success'=>false, 'message'=>"Wrong username/password");
+            }
+
+            // If nothing was thrown then assume we've logged in
+            $_SESSION['account'] = $account;
+            // we're instantly redirecting so returning is not necessary(?)
+            //return (object) array('success'=>true, 'message'=>"Success");
+            header('Location: '.$redirect);
+            exit();
+
+            // Catch error
+        }catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return (object) array('success'=>false, 'message'=>"Wrong username/password");
+        }
     }
 
     function logoutAccount() {
