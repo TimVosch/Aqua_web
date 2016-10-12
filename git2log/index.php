@@ -22,6 +22,30 @@
                     </div>
                     <div class="panel-body">
                         
+                        <div class="row">
+                            <div class="col-sm-12 col-md-7">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"><span>Statistics</span><span class="pull-right glyphicon glyphicon-stats"></span></div>
+                                    <div class="panel-body"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-5">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"><span>Options</span><span class="pull-right glyphicon glyphicon-wrench"></span></div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="/git2log/log/create" class="btn btn-default btn-block"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a href="/git2log/log/get" class="btn btn-default btn-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
