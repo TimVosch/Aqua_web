@@ -74,7 +74,7 @@
         if (
             strlen($username) < 6 ||
             strlen($password) < 6 ||
-            strlen($registration_code != 5)
+            strlen($registration_code) != 5
         ) {
             return (object) array('success' => false, 'message' => 'Error in a required field');
         }
