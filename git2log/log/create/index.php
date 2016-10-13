@@ -18,7 +18,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <span><strong>Git2Log</strong>, create new log</span>
-                        <span class="pull-right"><a href="/git2log/session/login/?logout" style="color: #fff"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></span>
+                        <span class="pull-right"><a href="/git2log" style="color: #fff"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></span>
                     </div>
                     <div class="panel-body">
 
