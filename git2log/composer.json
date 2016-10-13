@@ -2,7 +2,8 @@
     "name": "timvosch/git2log",
     "type": "project",
     "require": {
-        "illuminate/database": "^5.3"
+        "illuminate/database": "^5.3",
+        "rmccue/requests": "^1.7"
     },
     "license": "LICENSED"
 }
