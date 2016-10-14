@@ -12,7 +12,7 @@
     $_user_repos = [];
 
     function get_json($url) {
-        $request = Requests::get($url, array(), array('auth' => array('timvosch', '***REMOVED***')));
+        $request = Requests::get($url, array(), array('auth' => array('timvosch', '------')));
         if ($request->status_code < 400) {
             return JSON_DECODE($request->body);
         } else {
